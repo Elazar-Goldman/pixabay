@@ -86,7 +86,7 @@ localStorage.setItem('picArrs', JSON.stringify(data));
 }
 
 const directSerch=()=>{
-    window.location.href ="/search.html"
+    window.location.href ="search.html"
 }
 
 render(data);
