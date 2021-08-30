@@ -25,7 +25,8 @@ div.exDiv{
 div.wrapImg {
     height: 150px;
     width: 99px;
-    background-size: 99px 150px !important;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
     position: relative;
 
 }

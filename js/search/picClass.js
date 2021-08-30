@@ -27,7 +27,7 @@ class PicClass{
     </div>
     ` ; 
 let addDiv =document.getElementById(this.id);
-addDiv.style.background = `url(${this.img}) no-repeat center center`;
+addDiv.style.backgroundImage= `url(${this.img})`;
 
 
 // // adding btn && badge

@@ -34,7 +34,7 @@ let render =(_arr)=>{
         </div>
        `
        let addDiv =document.getElementById(`wrap${item.id}`);
-       addDiv.style.background = `url(${item.img}) no-repeat center center`;    
+       addDiv.style.backgroundImage = `url(${item.img})`;    
     }else{
         // adding in the search button (button will be added only once.)
         if(iterFlag){
