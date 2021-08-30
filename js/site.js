@@ -9,9 +9,9 @@ if(jsonData){
 // Adding an obj to the end of arr for "search new pictures"
 data.push({index:17})
 //Adding flags
-let iterFlag=0;
+let iterFlag=true;
 let flagnum =-1;
-let flagBtn =0;
+let flagBtn =true;
 // Rendering page
 let elem = document.getElementById('innerDiv');
 
@@ -37,11 +37,11 @@ let render =(_arr)=>{
        addDiv.style.background = `url(${item.img}) no-repeat center center`;    
     }else{
         // adding in the search button (button will be added only once.)
-        if(iterFlag===0){
+        if(iterFlag){
             newElem[flagnum].innerHTML+=`
             <div id="serchDiv" onClick="directSerch()">+</div>
             ` 
-            iterFlag=1
+            iterFlag=false;
         }
     }
    
@@ -56,18 +56,17 @@ let addListners=()=>{
     for(let x=0;x<elems.length;x++){
         elems[x].addEventListener('mouseover',(evt)=>{
             let item =evt.target;
-            if(flagBtn===1 || x> elems.length-1){return}
+            if(!flagBtn || x> elems.length-1){return}
             item.innerHTML+=`
             <button type="button" class="boxBtn btn btn-danger" id="${data[x].id}" onclick="removePic(this.id)">Remove</button>
             `
-            flagBtn=1;
+            flagBtn=false;
         })
         elems[x].addEventListener('mouseleave',(evt)=>{
             let item =evt.target
             let id = item.children[0].id;
-            console.log(id);
           document.getElementById(id).remove();
-           flagBtn=0;
+           flagBtn=true;
         })
     }
 }
@@ -76,10 +75,10 @@ let addListners=()=>{
 let removePic=(_id)=>{
 let newData = data.filter(item=>{return item.id!=_id})
 data = newData;
-flagBtn=0;
+flagBtn=true;
 iter=0;
 flagnum=-1;
-iterFlag=0
+iterFlag=true;
 render(data);
 
 localStorage.removeItem('picArrs');

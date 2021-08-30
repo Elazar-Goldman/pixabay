@@ -39,8 +39,7 @@ button.boxBtn{
 }
 
 div#removeItem{
-    position: absolute;
-  bottom: 100px;
+    margin-top: 50px;
 
 }
 @media only screen and (max-width: 1200px) {
